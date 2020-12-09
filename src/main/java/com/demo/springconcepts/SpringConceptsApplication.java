@@ -7,6 +7,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
 
 import com.demo.springconcepts.component.DemoBean;
+import com.demo.springconcepts.component.EmployeeBean;
 
 @SpringBootApplication
 public class SpringConceptsApplication {
@@ -16,6 +17,12 @@ public class SpringConceptsApplication {
 		ApplicationContext context = SpringApplication.run(SpringConceptsApplication.class, args);
 		DemoBean demobean = context.getBean(DemoBean.class);
 		logger.debug("Demo Bean= "+demobean.toString() );
-	}
-
+		logger.debug("Example using @Autowire annotation");
+		EmployeeBean employeeBean = context.getBean(EmployeeBean.class);
+		employeeBean.setEid(04);
+		employeeBean.setEname("Spring FrameWork");
+		employeeBean.showEmployeeDetails();
+	}	
 }
+
+
